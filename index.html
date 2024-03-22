@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="input" id="display"></div>
+        <div class="buttons">
+            <button class="btn" onclick="handleClick('Sin(')">Sin</button>
+            <button class="btn" onclick="handleClick('Cos(')">Cos</button>
+            <button class="btn" onclick="handleClick('Tan(')">Tan</button>
+            <button class="btn" onclick="handleClick('Exp')">Exp</button>
+            <br>
+            <button class="btn" onclick="handleClick('ArcSin(')">ArcSin</button>
+            <button class="btn" onclick="handleClick('ArcCos(')">ArcCos</button>
+            <button class="btn" onclick="handleClick('ArcTan(')">ArcTan</button>
+            <button class="btn" onclick="handleClick('Log(')">Log</button>
+            <br>
+            <button class="btn" onclick="handleClick('Pow(')">Pow</button>
+            <button class="btn" onclick="handleClick('Sqrt(')">Sqrt</button>
+            <button class="btn special" onclick="handleClick('AC')">AC</button>
+            <button class="btn special" onclick="handleClick('Del')">Del</button>
+            <br>
+            <div class="nums">
+                <button class="btn btn-num" onclick="handleClick('7')">7</button>
+                <button class="btn btn-num" onclick="handleClick('8')">8</button>
+                <button class="btn btn-num" onclick="handleClick('9')">9</button>
+                <button class="btn btn-num" onclick="handleClick('+')">+</button>
+                <br>
+                <button class="btn btn-num" onclick="handleClick('4')">4</button>
+                <button class="btn btn-num" onclick="handleClick('5')">5</button>
+                <button class="btn btn-num" onclick="handleClick('6')">6</button>
+                <button class="btn btn-num" onclick="handleClick('*')">x</button>
+                <br>
+                <button class="btn btn-num" onclick="handleClick('1')">1</button>
+                <button class="btn btn-num" onclick="handleClick('2')">2</button>
+                <button class="btn btn-num" onclick="handleClick('3')">3</button>
+                <button class="btn btn-num" onclick="handleClick('/')">/</button>
+                <br>
+                <button class="btn btn-num" onclick="handleClick('0')">0</button>
+                <button class="btn btn-num" onclick="handleClick('.')">.</button>
+                <button class="btn btn-equal" onclick="handleClick('=')">=</button>
+                <button class="btn btn-num" onclick="handleClick('-')">-</button>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleClick(value) {
+            const display = document.getElementById('display');
+
+            if (value === 'AC') {
+                display.textContent = '';
+                return;
+            }
+
+            if (value === 'Del') {
+                const currentText = display.textContent;
+                display.textContent = currentText.slice(0, -1);
+                return;
+            }
+
+            if (value === '=') {
+                try {
+                    display.textContent = eval(display.textContent);
+                } catch (error) {
+                    display.textContent = 'Error';
+                    //display.textContent = '';
+                }
+                return;
+            }
+
+            display.textContent += value;
+        }
+    </script>
+
+
+</body>
