@@ -68,4 +68,7 @@ button:hover {
     font-size: 30px;
     width:120px;
 }
+.btn-equal:hover {
+    transform: scale(1.13);
+}
 
